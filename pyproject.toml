@@ -4,15 +4,17 @@ version = "0.1.0"
 description = "Multi-agent credit analyst system"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = ["ipykernel>=7.2.0", "frontend", "backend"]
+dependencies = ["backend", "frontend"]
+
+[dependency-groups]
+dev = ["ipykernel>=7.2.0"]
+
+[tool.uv]
+default-groups = ["dev"]
 
 [tool.uv.sources]
 backend = { workspace = true }
 frontend = { workspace = true }
 
-
 [tool.uv.workspace]
-members = [
-    "packages/backend",
-    "packages/frontend",
-]
+members = ["packages/backend", "packages/frontend"]
